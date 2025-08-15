@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 questionary = "*"
 requests = "*"
-pyinstaller = "*"
 click = "*"
 python-dotenv = "*"
+pyinstaller = "*"
 
 [dev-packages]
 
