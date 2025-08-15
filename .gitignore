@@ -1,0 +1,6 @@
+python_code/installer
+python_code/dist
+python_code/build
+.env
+*.spec
+*.Pipefile.lock
