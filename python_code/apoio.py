@@ -50,10 +50,10 @@ def menu():
             subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "user.name", f'"{nome}"'])
             subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "user.email", f'"{email}"'])
             # Configurando o vscode como editor padrão do git
-            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "core.editor", '"code --wait"'])
+            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "core.editor", '"C:/Users/Aluno/AppData/Local/Programs/Microsoft\ VS\ Code/code --wait"'])
             # Definindo o vscode como editor de conflitos do git
             subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "merge.tool", "vscode"])
-            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "mergetool.vscode.cmd", '"code --wait --merge \$REMOTE \$BASE \$LOCAL \$MERGED"'])
+            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "mergetool.vscode.cmd", '"C:/Users/Aluno/AppData/Local/Programs/Microsoft\ VS\ Code/code --wait --merge \$REMOTE \$BASE \$LOCAL \$MERGED"'])
             subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "mergetool.keepBackup", "false"])
             # Clonando o repositório
             subprocess.run([f"{dirgit}\\bin\\git.exe", "clone", repositorio, diretorio])
