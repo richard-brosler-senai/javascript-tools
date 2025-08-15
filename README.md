@@ -20,6 +20,19 @@ git config --global user.name "Seu nome"
 ```bash
 git config --global user.email "seu.email@dominio.com.br"
 ```
+### Configurando VS Code como editor padrão do git
+```bash
+git config --global core.editor "code --wait"
+```
+### Configurando VS Code como editor de conflitos padrão do git
+```bash
+git config --global merge.tool vscode
+git config --global mergetool.vscode.cmd "code --wait --merge \$REMOTE \$BASE \$LOCAL \$MERGED"
+```
+#### Opcional: não criar backup de merge
+```bash
+git config --global mergetool.keepBackup false
+```
 ### Clonar um repositório
 Na pasta (C:\Users\Aluno\Documents\) efetuar o comando abaixo:
 ```bash
