@@ -3,6 +3,7 @@ from click import clear
 from urllib.request import urlopen
 from dotenv import load_dotenv
 from platform import node
+from pathlib import PureWindowsPath
 load_dotenv(override=True)
 """
 Programa para apoiar os alunos no curso de Java para clonar seu repositório
@@ -15,7 +16,9 @@ def menu():
     chave = os.environ.get('CHAVEAPP')
     senha = os.environ.get('SENHAAPP')
     turma = "m25-javascript-02"
-    dirgit= f"{os.environ.get('APPDATA')}\\..\\Local\\Programs\\Git"
+    dirgit= f"{os.environ.get('LOCALAPPDATA')}\\Programs\\Git"
+    dirvscode = PureWindowsPath(f"{os.environ.get('LOCALAPPDATA')}\\Programs\\Microsoft VS Code\\code.exe")\
+                .as_posix().replace(" ","\\ ")
     if not os.path.exists(dirgit):
         dirgit = f"{os.environ.get('ProgramFiles')}\\git"
         if not os.path.exists(dirgit):
@@ -47,13 +50,13 @@ def menu():
             }, headers={"Content-Type": "application/json"})
             # print(ret.json())
             # Configurando o git
-            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "user.name", f'"{nome}"'])
-            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "user.email", f'"{email}"'])
+            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "user.name", f'{nome}'])
+            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "user.email", f'{email}'])
             # Configurando o vscode como editor padrão do git
-            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "core.editor", '"C:/Users/Aluno/AppData/Local/Programs/Microsoft\ VS\ Code/code --wait"'])
+            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "core.editor", f'{dirvscode} --wait'])
             # Definindo o vscode como editor de conflitos do git
             subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "merge.tool", "vscode"])
-            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "mergetool.vscode.cmd", '"C:/Users/Aluno/AppData/Local/Programs/Microsoft\ VS\ Code/code --wait --merge \$REMOTE \$BASE \$LOCAL \$MERGED"'])
+            subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "mergetool.vscode.cmd", f'{dirvscode} --wait --merge \$REMOTE \$BASE \$LOCAL \$MERGED'])
             subprocess.run([f"{dirgit}\\bin\\git.exe", "config", "--global", "mergetool.keepBackup", "false"])
             # Clonando o repositório
             subprocess.run([f"{dirgit}\\bin\\git.exe", "clone", repositorio, diretorio])
