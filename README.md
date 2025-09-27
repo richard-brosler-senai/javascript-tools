@@ -8,7 +8,7 @@ https://senai701.brosler.pro.br/release/SetupApoioJavaScript.exe
 ### Github
 https://github.com/
 ### Repositório do projeto do professor
-https://github.com/richard-brosler-senai/m25-javascript-02
+https://github.com/richard-brosler-senai/m25-javascript-02-.git
 ### Download programa Git
 https://git-scm.com/downloads
 # Comandos importantes do GIT
